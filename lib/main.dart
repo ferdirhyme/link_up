@@ -1,10 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:supabase_flutter/supabase_flutter.dart';
+import 'package:flutter_easyloading/flutter_easyloading.dart';
 
 import 'checkLogin.dart';
 
-void main()async {
-   WidgetsFlutterBinding.ensureInitialized();
+void main() async {
+  WidgetsFlutterBinding.ensureInitialized();
   await Supabase.initialize(
     url: 'https://fawbzkrvgksozunbnzdd.supabase.co',
     anonKey:
@@ -17,18 +18,17 @@ void main()async {
 class MyApp extends StatelessWidget {
   const MyApp({super.key});
 
-
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Flutter Demo',
+      title: 'LinkUP',
+      debugShowCheckedModeBanner: false,
       theme: ThemeData(
-      
         primarySwatch: Colors.blue,
+        useMaterial3: true,
       ),
       home: const CheckLogin(),
+      builder: EasyLoading.init(),
     );
   }
 }
-
-
